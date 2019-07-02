@@ -1,0 +1,18 @@
+#!/bin/bash -f
+
+
+source /u/local/Modules/default/init/modules.sh
+module load intel/14.cs 
+module load intelmpi/5.0.0
+module load python/anaconda2
+
+source activate phonopy
+
+phonopy -d dis.conf -c POSCAR-unitcell
+
+bash reference_phonopy_run.sh
+
+phonopy -f vasprun.xml-{001...156}
+phonopy -c POSCAR-unitcell -t mesh.conf
+
+source deactivate
