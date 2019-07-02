@@ -1,2 +1,2 @@
 # zeolitesAI
-ab initio calculation data of zeolites
+ab initio calculation input of zeolites
